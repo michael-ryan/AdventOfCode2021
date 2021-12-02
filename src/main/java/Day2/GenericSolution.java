@@ -3,7 +3,6 @@ package Day2;
 import Common.FileLoader;
 
 import java.io.File;
-import java.util.function.BiConsumer;
 import java.util.stream.Stream;
 
 /**
@@ -12,22 +11,34 @@ import java.util.stream.Stream;
 public abstract class GenericSolution {
 
     private static final File f = new File("src/main/java/Day2/input.txt");
-    protected static int distanceForward;
-    protected static int depth;
+    protected int distanceForward;
+    protected int depth;
 
     /**
      * Loads the {@link File} <code>f</code> variable and returns it as an array of integers.
      *
      * @return the content of <code>f</code>
      */
-    protected static Stream<String> parseProblem(){
+    private static Stream<String> parseProblem(){
         return FileLoader.loadFile(f);
     }
 
-    protected static void solve(String instruction, BiConsumer<String, Integer> instructionConsumer){
+    protected abstract void handleInstruction(String instruction, int magnitude);
+
+    protected void run(){
+        parseProblem().forEach(this::solve);
+
+        System.out.println(this.computeAnswer());
+    }
+
+    private void solve(String instruction){
         String direction = instruction.split(" ")[0];
         int magnitude = Integer.parseInt(instruction.split(" ")[1]);
 
-        instructionConsumer.accept(direction, magnitude);
+        handleInstruction(direction, magnitude);
+    }
+
+    private int computeAnswer(){
+        return distanceForward * depth;
     }
 }

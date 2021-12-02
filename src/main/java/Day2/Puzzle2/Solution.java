@@ -4,17 +4,16 @@ import Day2.GenericSolution;
 
 public class Solution extends GenericSolution {
 
-    private static int aim;
+    private int aim;
 
-    public static void main(String[] args){
-        parseProblem().forEach(s -> Solution.solve(s, Solution::handleInstruction));
-
-        System.out.println("Distance forward: " + distanceForward);
-        System.out.println("Depth: " + depth);
-        System.out.println("depth * distance = " + (distanceForward * depth));
+    private Solution(){
     }
 
-    private static void handleInstruction(String direction, int magnitude){
+    public static void main(String[] args){
+        new Solution().run();
+    }
+
+    protected void handleInstruction(String direction, int magnitude){
         switch(direction){
             case "forward":
                 distanceForward += magnitude;
