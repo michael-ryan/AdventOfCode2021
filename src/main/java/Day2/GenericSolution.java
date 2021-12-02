@@ -10,6 +10,15 @@ import java.util.stream.Stream;
  */
 public abstract class GenericSolution {
 
+    /**
+     * Possible keywords in instructions
+     */
+    protected enum Direction {
+        FORWARD,
+        UP,
+        DOWN
+    }
+
     private static final File f = new File("src/main/java/Day2/input.txt");
     protected int distanceForward;
     protected int depth;
@@ -23,7 +32,13 @@ public abstract class GenericSolution {
         return FileLoader.loadFile(f);
     }
 
-    protected abstract void handleInstruction(String instruction, int magnitude);
+    /**
+     * Handles a single instruction. The only business logic function an implementing solution needs to have.
+     *
+     * @param direction the keyword of the instruction
+     * @param magnitude the magnitude of the instruction
+     */
+    protected abstract void handleInstruction(Direction direction, int magnitude);
 
     protected void run(){
         parseProblem().forEach(this::solve);
@@ -34,8 +49,23 @@ public abstract class GenericSolution {
     private void solve(String instruction){
         String direction = instruction.split(" ")[0];
         int magnitude = Integer.parseInt(instruction.split(" ")[1]);
+        Direction keyword;
 
-        handleInstruction(direction, magnitude);
+        switch(direction){
+            case "forward":
+                keyword = Direction.FORWARD;
+                break;
+            case "up":
+                keyword = Direction.UP;
+                break;
+            case "down":
+                keyword = Direction.DOWN;
+                break;
+            default:
+                throw new RuntimeException("Unknown direction \"" + direction + "\"");
+        }
+
+        handleInstruction(keyword, magnitude);
     }
 
     private int computeAnswer(){

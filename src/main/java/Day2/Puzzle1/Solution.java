@@ -11,19 +11,18 @@ public class Solution extends GenericSolution {
         new Solution().run();
     }
 
-    protected void handleInstruction(String direction, int magnitude){
+    @Override
+    protected void handleInstruction(Direction direction, int magnitude){
         switch(direction){
-            case "forward":
+            case FORWARD:
                 distanceForward += magnitude;
                 break;
-            case "up":
+            case UP:
                 depth -= magnitude;
                 break;
-            case "down":
+            case DOWN:
                 depth += magnitude;
                 break;
-            default:
-                throw new RuntimeException("Unknown direction \"" + direction + "\"");
         }
     }
 }
