@@ -8,18 +8,21 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class FileLoader {
-    private FileLoader(){}
+
+    private FileLoader(){
+    }
 
     /**
      * Loads the lines of the supplied file and returns it as a {@link Stream} of {@link String}s.
+     *
      * @param f the file to read from
      * @return a stream containing the lines of the file
      */
     public static Stream<String> loadFile(File f){
         BufferedReader reader;
-        try{
+        try {
             reader = new BufferedReader(new FileReader(f));
-        } catch(FileNotFoundException e){
+        } catch(FileNotFoundException e) {
             throw new RuntimeException(e);
         }
 

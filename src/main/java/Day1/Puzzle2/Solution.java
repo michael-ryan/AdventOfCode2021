@@ -3,6 +3,7 @@ package Day1.Puzzle2;
 import Day1.GenericSolution;
 
 public class Solution extends GenericSolution {
+
     public static void main(String[] args){
         int[] input = parseProblem();
 
