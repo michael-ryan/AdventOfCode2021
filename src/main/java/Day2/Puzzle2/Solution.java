@@ -7,7 +7,7 @@ public class Solution extends GenericSolution {
     private static int aim;
 
     public static void main(String[] args){
-        parseProblem().forEach(s -> Day2.Puzzle1.Solution.solve(s, Solution::handleInstruction));
+        parseProblem().forEach(s -> Solution.solve(s, Solution::handleInstruction));
 
         System.out.println("Distance forward: " + distanceForward);
         System.out.println("Depth: " + depth);
