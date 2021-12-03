@@ -1,16 +1,17 @@
 package Common;
 
 import java.io.IOException;
+import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public abstract class Day {
-    protected abstract Path getInputFile();
+    protected abstract String getInputFile();
 
     protected Stream<String> parseAsStringStream(){
-        Path inputFilePath = getInputFile();
+        Path inputFilePath = FileSystems.getDefault().getPath(getInputFile());
         try {
             return Files.lines(inputFilePath);
         } catch(IOException e) {

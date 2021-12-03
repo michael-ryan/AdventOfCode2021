@@ -2,16 +2,13 @@ package Day1;
 
 import Common.Day;
 
-import java.nio.file.FileSystems;
-import java.nio.file.Path;
-
 /**
  * Generic abstract class that implements annoying boilerplate parsing and stuff.
  */
 public abstract class GenericSolution extends Day {
     @Override
-    protected Path getInputFile(){
-        return FileSystems.getDefault().getPath("src/main/java/Day1/input.txt");
+    protected String getInputFile(){
+        return "src/main/java/Day1/input.txt";
     }
 
     /**
