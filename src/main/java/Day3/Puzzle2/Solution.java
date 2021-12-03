@@ -2,8 +2,8 @@ package Day3.Puzzle2;
 
 import Day3.GenericSolution;
 
+import java.util.Arrays;
 import java.util.function.Predicate;
-import java.util.stream.Stream;
 
 public class Solution extends GenericSolution {
 
@@ -38,7 +38,7 @@ public class Solution extends GenericSolution {
     }
 
     private static String[] filterStringArray(String[] input, Predicate<? super String> predicate){
-        return Stream.of(input).filter(predicate).toArray(String[]::new);
+        return Arrays.stream(input).filter(predicate).toArray(String[]::new);
     }
 
     private static boolean isZeroMostCommon(String[] binary, int position){
