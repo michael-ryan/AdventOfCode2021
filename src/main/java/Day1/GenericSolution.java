@@ -1,23 +1,17 @@
 package Day1;
 
-import Common.FileLoader;
+import Common.Day;
 
-import java.io.File;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
 
 /**
  * Generic abstract class that implements annoying boilerplate parsing and stuff.
  */
-public abstract class GenericSolution {
-
-    private static final File f = new File("src/main/java/Day1/input.txt");
-
-    /**
-     * Loads the {@link File} <code>f</code> variable and returns it as an array of integers.
-     *
-     * @return the content of <code>f</code>
-     */
-    protected static int[] parseProblem(){
-        return FileLoader.loadAsIntegers(f).toArray();
+public abstract class GenericSolution extends Day {
+    @Override
+    protected Path getInputFile(){
+        return FileSystems.getDefault().getPath("src/main/java/Day1/input.txt");
     }
 
     /**

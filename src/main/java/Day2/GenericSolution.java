@@ -1,14 +1,15 @@
 package Day2;
 
-import Common.FileLoader;
+import Common.Day;
 
 import java.io.File;
-import java.util.stream.Stream;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
 
 /**
  * Generic abstract class that implements annoying boilerplate parsing and stuff.
  */
-public abstract class GenericSolution {
+public abstract class GenericSolution extends Day {
 
     /**
      * Possible keywords in instructions
@@ -23,13 +24,9 @@ public abstract class GenericSolution {
     protected int distanceForward;
     protected int depth;
 
-    /**
-     * Loads the {@link File} <code>f</code> variable and returns it as an array of integers.
-     *
-     * @return the content of <code>f</code>
-     */
-    private static Stream<String> parseProblem(){
-        return FileLoader.loadFile(f);
+    @Override
+    protected Path getInputFile(){
+        return FileSystems.getDefault().getPath("src/main/java/Day2/input.txt");
     }
 
     /**
@@ -41,7 +38,7 @@ public abstract class GenericSolution {
     protected abstract void handleInstruction(Direction direction, int magnitude);
 
     protected void run(){
-        parseProblem().forEach(this::solve);
+        parseAsStringStream().forEach(this::solve);
 
         System.out.println(this.computeAnswer());
     }
