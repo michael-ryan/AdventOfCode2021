@@ -2,6 +2,7 @@ package Day3.Puzzle2;
 
 import Day3.GenericSolution;
 
+import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 public class Solution extends GenericSolution {
@@ -9,15 +10,26 @@ public class Solution extends GenericSolution {
     private Solution(){
     }
 
-    private static String findOxygenGeneratorRating(String[] binary){
+    private static String findRating(String[] binary, boolean isOxygen){
+        char zeroCommonWantedBit;
+        char otherwise;
+
+        if(isOxygen){
+            zeroCommonWantedBit = '0';
+            otherwise = '1';
+        } else {
+            zeroCommonWantedBit = '1';
+            otherwise = '0';
+        }
+
         int activeBitPosition = 0;
 
         while(binary.length > 1){
             int pos = activeBitPosition;
             if(isZeroMostCommon(binary, pos)){
-                binary = Stream.of(binary).filter(s -> s.charAt(pos) == '0').toArray(String[]::new);
+                binary = filterStringArray(binary, s -> s.charAt(pos) == zeroCommonWantedBit);
             } else {
-                binary = Stream.of(binary).filter(s -> s.charAt(pos) == '1').toArray(String[]::new);
+                binary = filterStringArray(binary, s -> s.charAt(pos) == otherwise);
             }
             activeBitPosition++;
         }
@@ -25,20 +37,8 @@ public class Solution extends GenericSolution {
         return binary[0];
     }
 
-    private static String findCo2ScrubberRating(String[] binary){
-        int activeBitPosition = 0;
-
-        while(binary.length > 1){
-            int pos = activeBitPosition;
-            if(isZeroMostCommon(binary, pos)){
-                binary = Stream.of(binary).filter(s -> s.charAt(pos) == '1').toArray(String[]::new);
-            } else {
-                binary = Stream.of(binary).filter(s -> s.charAt(pos) == '0').toArray(String[]::new);
-            }
-            activeBitPosition++;
-        }
-
-        return binary[0];
+    private static String[] filterStringArray(String[] input, Predicate<? super String> predicate){
+        return Stream.of(input).filter(predicate).toArray(String[]::new);
     }
 
     private static boolean isZeroMostCommon(String[] binary, int position){
@@ -68,8 +68,8 @@ public class Solution extends GenericSolution {
     private void run(){
         String[] input = parseAsStringArray();
 
-        String oxygen = findOxygenGeneratorRating(input);
-        String co2 = findCo2ScrubberRating(input);
+        String oxygen = findRating(input, true);
+        String co2 = findRating(input, false);
 
         System.out.println(binaryStringToInt(oxygen) * binaryStringToInt(co2));
     }
