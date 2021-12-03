@@ -2,23 +2,11 @@ package Day2;
 
 import Common.Day;
 
-import java.io.File;
-
 /**
  * Generic abstract class that implements annoying boilerplate parsing and stuff.
  */
 public abstract class GenericSolution extends Day {
 
-    /**
-     * Possible keywords in instructions
-     */
-    protected enum Direction {
-        FORWARD,
-        UP,
-        DOWN
-    }
-
-    private static final File f = new File("src/main/java/Day2/input.txt");
     protected int distanceForward;
     protected int depth;
 
@@ -65,5 +53,12 @@ public abstract class GenericSolution extends Day {
 
     private int computeAnswer(){
         return distanceForward * depth;
+    }
+
+    /**
+     * Possible keywords in instructions
+     */
+    protected enum Direction {
+        FORWARD, UP, DOWN
     }
 }

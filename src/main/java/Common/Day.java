@@ -8,6 +8,7 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public abstract class Day {
+
     protected abstract String getInputFile();
 
     protected Stream<String> parseAsStringStream(){

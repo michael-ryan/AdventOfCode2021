@@ -3,7 +3,13 @@ package Day1.Puzzle2;
 import Day1.GenericSolution;
 
 public class Solution extends GenericSolution {
-    private Solution(){}
+
+    private Solution(){
+    }
+
+    public static void main(String[] args){
+        new Solution().run();
+    }
 
     private void run(){
         int[] input = parseAsIntArray();
@@ -17,10 +23,5 @@ public class Solution extends GenericSolution {
         }
 
         System.out.println(solve(summedThrees));
-    }
-
-
-    public static void main(String[] args){
-        new Solution().run();
     }
 }
