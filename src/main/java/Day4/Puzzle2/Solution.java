@@ -9,11 +9,9 @@ import java.util.List;
 public class Solution extends GenericSolution {
 
     private final List<Board> winningBoards;
-    private final List<Integer> winningBoardScores;
 
     private Solution(){
         this.winningBoards = new ArrayList<>();
-        this.winningBoardScores = new ArrayList<>();
     }
 
     public static void main(String[] args){
@@ -31,11 +29,10 @@ public class Solution extends GenericSolution {
                 board.markNumber(calledNumber);
                 if(board.isWinning()){
                     winningBoards.add(board);
-                    winningBoardScores.add(board.computeScore());
                 }
             }
         }
 
-        System.out.println(winningBoardScores.get(winningBoards.size() - 1));
+        System.out.println(winningBoards.get(winningBoards.size() - 1).computeScore());
     }
 }
