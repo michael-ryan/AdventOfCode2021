@@ -15,18 +15,13 @@ public class Solution extends GenericSolution {
     private void run(){
         this.parseInput();
 
-        boolean done = false;
         for(int calledNumber : calledNumbers){
             for(Board board : boards){
                 board.markNumber(calledNumber);
                 if(board.isWinning()){
                     System.out.println(board.computeScore());
-                    done = true;
-                    break;
+                    return;
                 }
-            }
-            if(done){
-                break;
             }
         }
     }
