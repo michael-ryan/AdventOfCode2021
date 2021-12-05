@@ -4,7 +4,7 @@ import Common.Day;
 
 import java.util.Arrays;
 
-public class GenericSolution extends Day {
+public abstract class GenericSolution extends Day {
 
     protected int[] calledNumbers;
     protected Board[] boards;

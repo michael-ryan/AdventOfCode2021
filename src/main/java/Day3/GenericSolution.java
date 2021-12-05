@@ -2,7 +2,7 @@ package Day3;
 
 import Common.Day;
 
-public class GenericSolution extends Day {
+public abstract class GenericSolution extends Day {
 
     protected static int binaryStringToInt(String s){
         int factor = 1;
