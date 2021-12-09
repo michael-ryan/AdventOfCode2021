@@ -11,31 +11,15 @@ public class Solution extends GenericSolution {
         new Solution().run();
     }
 
-    private void run(){
-        String[] input = this.parseAsStringArray();
+    protected void handleLine(String[] keys, String[] digits){
+        WireSolver solver = new WireSolver(keys);
 
-        int total = 0;
+        StringBuilder number = new StringBuilder();
 
-        for(String line : input){
-            total += sumLine(line);
+        for(String digit : digits){
+            number.append(solver.decodeNumber(digit));
         }
 
-        System.out.println(total);
-    }
-
-    private int sumLine(String line){
-        String[] splitLine = line.split(" \\| ");
-
-        WireSolver solver = new WireSolver(splitLine[0].split(" "));
-
-        String[] values = splitLine[1].split(" ");
-
-        StringBuilder digits = new StringBuilder();
-
-        for(String value : values){
-            digits.append(solver.decodeNumber(value));
-        }
-
-        return Integer.parseInt(digits.toString());
+        this.answer += Integer.parseInt(number.toString());
     }
 }
