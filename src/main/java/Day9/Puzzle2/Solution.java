@@ -28,8 +28,7 @@ public class Solution extends GenericSolution {
             }
         }
 
-        basinSizes.remove(biggestLowPoint);
-        return biggestSize;
+        return basinSizes.remove(biggestLowPoint);
     }
 
     public static void main(String[] args){
