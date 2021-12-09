@@ -2,7 +2,7 @@ package Day9;
 
 import Common.Day;
 
-public class GenericSolution extends Day {
+public abstract class GenericSolution extends Day {
 
     protected static boolean isLowPoint(int[][] matrix, int x, int y){
         boolean candidate = true;

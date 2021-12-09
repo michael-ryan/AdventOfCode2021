@@ -2,7 +2,7 @@ package Day8;
 
 import Common.Day;
 
-public class GenericSolution extends Day {
+public abstract class GenericSolution extends Day {
 
     @Override
     protected String getInputFile(){
