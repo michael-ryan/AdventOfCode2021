@@ -12,6 +12,7 @@ public class WireSolver {
      *
      * @param input the numbers before the pipe
      */
+    @SuppressWarnings("ConstantConditions")
     public WireSolver(String[] input){
         ArrayList<Set<Character>> unknownNumbers = new ArrayList<>();
 
