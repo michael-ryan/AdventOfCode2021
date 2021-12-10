@@ -5,9 +5,9 @@ import Common.Day;
 import java.util.*;
 
 public abstract class GenericSolution extends Day {
-    protected List<Character> openCharacters;
-    protected List<Character> closeCharacters;
-    protected Map<Character, BracketType> characterTypes;
+    protected final List<Character> openCharacters;
+    protected final List<Character> closeCharacters;
+    protected final Map<Character, BracketType> characterTypes;
 
     protected enum BracketType {
         NORMAL(3, 1),

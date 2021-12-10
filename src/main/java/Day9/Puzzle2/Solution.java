@@ -7,10 +7,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Solution extends GenericSolution {
-
-    private Solution(){
-    }
-
     private static int popBiggestBasin(Map<Pair<Integer, Integer>, Integer> basinSizes){
         int biggestSize = 0;
         Pair<Integer, Integer> biggestLowPoint = null;
@@ -31,11 +27,7 @@ public class Solution extends GenericSolution {
         return basinSizes.remove(biggestLowPoint);
     }
 
-    public static void main(String[] args){
-        new Solution().run();
-    }
-
-    private void run(){
+    public Number run(){
         int[][] matrix = parseAsIntMatrix();
 
         Map<Pair<Integer, Integer>, Integer> basinSizes = new HashMap<>();
@@ -58,7 +50,7 @@ public class Solution extends GenericSolution {
             }
         }
 
-        System.out.println(popBiggestBasin(basinSizes) * popBiggestBasin(basinSizes) * popBiggestBasin(basinSizes));
+        return popBiggestBasin(basinSizes) * popBiggestBasin(basinSizes) * popBiggestBasin(basinSizes);
     }
 
     /*

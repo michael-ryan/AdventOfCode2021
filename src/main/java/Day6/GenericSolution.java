@@ -5,13 +5,14 @@ import Common.Day;
 import java.util.Arrays;
 
 public abstract class GenericSolution extends Day {
+    protected int daysToRun;
 
     @Override
     protected String getInputFile(){
         return "src/main/java/Day6/input.txt";
     }
 
-    protected void run(int daysToSimulate){
+    public Number run(){
         int[] input = Arrays.stream(parseAsStringArray()[0].split(",")).mapToInt(Integer::parseInt).toArray();
 
         long[] initialState = new long[9];
@@ -22,8 +23,8 @@ public abstract class GenericSolution extends Day {
 
         Population population = new Population(initialState);
 
-        population.simulate(daysToSimulate);
+        population.simulate(daysToRun);
 
-        System.out.println(population.getNumberOfFish());
+        return population.getNumberOfFish();
     }
 }

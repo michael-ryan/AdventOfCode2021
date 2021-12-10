@@ -5,17 +5,14 @@ import Day10.GenericSolution;
 import java.util.*;
 
 public class Solution extends GenericSolution {
-
-    private Solution(){}
-
-    private void run(){
+    public Number run(){
         long[] scores = parseAsStringStream()
                 .filter(line -> this.isCorrupted(line) == null)
                 .mapToLong(this::completeLine)
                 .sorted()
                 .toArray();
 
-        System.out.println(scores[(scores.length - 1) / 2]);
+        return scores[(scores.length - 1) / 2];
     }
 
     /*
@@ -42,9 +39,5 @@ public class Solution extends GenericSolution {
         }
 
         return score;
-    }
-
-    public static void main(String[] args){
-        new Solution().run();
     }
 }

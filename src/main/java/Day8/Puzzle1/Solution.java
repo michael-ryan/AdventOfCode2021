@@ -6,14 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Solution extends GenericSolution {
-
-    private Solution(){
-    }
-
-    public static void main(String[] args){
-        new Solution().run();
-    }
-
     protected void handleLine(String[] keys, String[] digits){
         List<Integer> uniqueLengths = new ArrayList<>();
         uniqueLengths.add(2);

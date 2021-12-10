@@ -31,4 +31,6 @@ public abstract class Day {
     protected IntStream parseAsIntStream(){
         return parseAsStringStream().mapToInt(Integer::parseInt);
     }
+
+    public abstract Number run();
 }

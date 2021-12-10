@@ -6,7 +6,7 @@ public class Solution extends GenericSolution {
 
     private int aim;
 
-    private Solution(){
+    public Solution(){
     }
 
     public static void main(String[] args){

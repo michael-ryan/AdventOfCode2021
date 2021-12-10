@@ -3,15 +3,7 @@ package Day9.Puzzle1;
 import Day9.GenericSolution;
 
 public class Solution extends GenericSolution {
-
-    private Solution(){
-    }
-
-    public static void main(String[] args){
-        new Solution().run();
-    }
-
-    private void run(){
+    public Number run(){
         int[][] matrix = parseAsIntMatrix();
 
         int width = matrix[0].length;
@@ -26,6 +18,6 @@ public class Solution extends GenericSolution {
             }
         }
 
-        System.out.println(risk);
+        return risk;
     }
 }

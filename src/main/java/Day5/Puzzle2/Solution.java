@@ -4,7 +4,7 @@ import Day5.GenericSolution;
 
 public class Solution extends GenericSolution {
 
-    private Solution(){
+    public Solution(){
     }
 
     public static void main(String[] args){

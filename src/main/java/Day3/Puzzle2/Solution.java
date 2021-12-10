@@ -7,7 +7,7 @@ import java.util.function.Predicate;
 
 public class Solution extends GenericSolution {
 
-    private Solution(){
+    public Solution(){
     }
 
     private static String findRating(String[] binary, boolean isOxygen){
@@ -65,12 +65,12 @@ public class Solution extends GenericSolution {
         new Solution().run();
     }
 
-    private void run(){
+    public Number run(){
         String[] input = parseAsStringArray();
 
         String oxygen = findRating(input, true);
         String co2 = findRating(input, false);
 
-        System.out.println(binaryStringToInt(oxygen) * binaryStringToInt(co2));
+        return binaryStringToInt(oxygen) * binaryStringToInt(co2);
     }
 }

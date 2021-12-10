@@ -23,10 +23,10 @@ public abstract class GenericSolution extends Day {
      */
     protected abstract void handleInstruction(Direction direction, int magnitude);
 
-    protected void run(){
+    public Number run(){
         parseAsStringStream().forEach(this::solve);
 
-        System.out.println(this.computeAnswer());
+        return this.computeAnswer();
     }
 
     private void solve(String instruction){

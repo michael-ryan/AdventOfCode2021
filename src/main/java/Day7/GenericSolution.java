@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 public abstract class GenericSolution extends Day {
 
-    protected void run(){
+    public Number run(){
         int[] crabStartingPositions =
                 Arrays.stream(this.parseAsStringArray()[0].split(",")).mapToInt(Integer::parseInt).toArray();
 
@@ -24,7 +24,7 @@ public abstract class GenericSolution extends Day {
             }
         }
 
-        System.out.println(minCost);
+        return minCost;
     }
 
     protected abstract int computeFuelUseForCrab(int start, int end);

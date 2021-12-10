@@ -5,7 +5,7 @@ import Common.Day;
 public abstract class GenericSolution extends Day {
     protected int answer = 0;
 
-    protected void run(){
+    public Number run(){
         parseAsStringStream().forEach(line -> {
             String[] splitLine = line.split(" \\| ");
             String[] keys = splitLine[0].split(" ");
@@ -13,7 +13,7 @@ public abstract class GenericSolution extends Day {
             this.handleLine(keys, digits);
         });
 
-        System.out.println(this.answer);
+        return this.answer;
     }
 
     protected abstract void handleLine(String[] keys, String[] digits);

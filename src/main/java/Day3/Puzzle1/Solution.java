@@ -10,7 +10,7 @@ public class Solution extends GenericSolution {
     private int lineCount;
     private int[] onesInEachPosition;
 
-    private Solution(){
+    public Solution(){
     }
 
     private static String computeGamma(int lineCount, int[] onesInEachPosition){
@@ -48,13 +48,13 @@ public class Solution extends GenericSolution {
         new Solution().run();
     }
 
-    private void run(){
+    public Number run(){
         parseAsStringStream().forEach(this::readLine);
 
         String gamma = computeGamma(lineCount, onesInEachPosition);
         String epsilon = computeEpsilon(gamma);
 
-        System.out.println(binaryStringToInt(gamma) * binaryStringToInt(epsilon));
+        return binaryStringToInt(gamma) * binaryStringToInt(epsilon);
     }
 
     private void readLine(String line){

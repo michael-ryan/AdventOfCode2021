@@ -10,7 +10,7 @@ public class Solution extends GenericSolution {
 
     private final List<Board> winningBoards;
 
-    private Solution(){
+    public Solution(){
         this.winningBoards = new ArrayList<>();
     }
 
@@ -18,7 +18,7 @@ public class Solution extends GenericSolution {
         new Solution().run();
     }
 
-    private void run(){
+    public Number run(){
         this.parseInput();
 
         for(int calledNumber : calledNumbers){
@@ -33,6 +33,6 @@ public class Solution extends GenericSolution {
             }
         }
 
-        System.out.println(winningBoards.get(winningBoards.size() - 1).computeScore());
+        return winningBoards.get(winningBoards.size() - 1).computeScore();
     }
 }

@@ -11,10 +11,10 @@ public abstract class GenericSolution extends Day {
         return "src/main/java/Day5/input.txt";
     }
 
-    protected void run(){
+    public Number run(){
         this.parseInput();
 
-        System.out.println(countOverlaps());
+        return countOverlaps();
     }
 
     protected void parseInput(){
