@@ -31,22 +31,6 @@ public abstract class GenericSolution extends Day {
         return candidate;
     }
 
-    protected int[][] parseAsIntMatrix(){
-        String[] input = parseAsStringArray();
-
-        int[][] matrix = new int[input.length][];
-
-        for(int i = 0; i < input.length; i++){
-            int[] line = new int[input[0].length()];
-            for(int j = 0; j < input[0].length(); j++){
-                line[j] = Integer.parseInt(String.valueOf(input[i].toCharArray()[j]));
-            }
-            matrix[i] = line;
-        }
-
-        return matrix;
-    }
-
     @Override
     protected String getInputFile(){
         return "src/main/java/Day9/input.txt";
