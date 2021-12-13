@@ -10,9 +10,6 @@ public class Solution extends GenericSolution {
     private int lineCount;
     private int[] onesInEachPosition;
 
-    public Solution(){
-    }
-
     private static String computeGamma(int lineCount, int[] onesInEachPosition){
         float threshold = lineCount / 2f;
         StringBuilder gamma = new StringBuilder();
@@ -42,10 +39,6 @@ public class Solution extends GenericSolution {
         }
 
         return epsilon.toString();
-    }
-
-    public static void main(String[] args){
-        new Solution().run();
     }
 
     public Number run(){

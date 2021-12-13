@@ -7,16 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Solution extends GenericSolution {
-
-    private final List<Board> winningBoards;
-
-    public Solution(){
-        this.winningBoards = new ArrayList<>();
-    }
-
-    public static void main(String[] args){
-        new Solution().run();
-    }
+    private final List<Board> winningBoards = new ArrayList<>();
 
     public Number run(){
         this.parseInput();

@@ -6,10 +6,6 @@ import java.util.Arrays;
 import java.util.function.Predicate;
 
 public class Solution extends GenericSolution {
-
-    public Solution(){
-    }
-
     private static String findRating(String[] binary, boolean isOxygen){
         char zeroCommonWantedBit;
         char otherwise;
@@ -59,10 +55,6 @@ public class Solution extends GenericSolution {
         }
 
         return new int[]{zeroes, ones};
-    }
-
-    public static void main(String[] args){
-        new Solution().run();
     }
 
     public Number run(){

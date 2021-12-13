@@ -1,6 +1,6 @@
 package Day6;
 
-public class Population {
+class Population {
 
     private long[] fishAtEachAge;
 

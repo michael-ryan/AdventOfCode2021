@@ -4,14 +4,6 @@ import Day4.Board;
 import Day4.GenericSolution;
 
 public class Solution extends GenericSolution {
-
-    public Solution(){
-    }
-
-    public static void main(String[] args){
-        new Solution().run();
-    }
-
     public Number run(){
         this.parseInput();
 

@@ -3,7 +3,7 @@ package Day8.Puzzle2;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class WireSolver {
+class WireSolver {
 
     private final Map<Set<Character>, Integer> numbers;
 
