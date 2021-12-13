@@ -7,7 +7,7 @@ public class Main {
     Add expected answers
     Uncomment around line 100
      */
-    private static final int PUZZLES_DONE = 12;
+    private static final int PUZZLES_DONE = 13;
     private int day = 1;
     private int puzzle = 1;
     private Instant now;
@@ -41,7 +41,7 @@ public class Main {
                 {316851, 2182912364L},
                 {1601, 368},
                 {4304, 118242},
-                {null, null},
+                {693, null},
                 {null, null},
                 {null, null},
                 {null, null},
@@ -115,9 +115,9 @@ public class Main {
         answers[10][1] = new Day11.Puzzle2.Solution().run(); reportTime();
         answers[11][0] = new Day12.Puzzle1.Solution().run(); reportTime();
         answers[11][1] = new Day12.Puzzle2.Solution().run(); reportTime();
-/*        answers[12][0] = new Day13.Puzzle1.Solution().run(); reportTime();
+        answers[12][0] = new Day13.Puzzle1.Solution().run(); reportTime();
         answers[12][1] = new Day13.Puzzle2.Solution().run(); reportTime();
-        answers[13][0] = new Day14.Puzzle1.Solution().run(); reportTime();
+/*        answers[13][0] = new Day14.Puzzle1.Solution().run(); reportTime();
         answers[13][1] = new Day14.Puzzle2.Solution().run(); reportTime();
         answers[14][0] = new Day15.Puzzle1.Solution().run(); reportTime();
         answers[14][1] = new Day15.Puzzle2.Solution().run(); reportTime();
