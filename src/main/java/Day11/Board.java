@@ -7,12 +7,12 @@ import java.util.Set;
 
 public class Board {
 
-    private class Octopus {
+    private static class Octopus {
 
         private boolean isFlashing = false;
         private int energy;
-        private int x;
-        private int y;
+        private final int x;
+        private final int y;
         public Octopus(int energy, int x, int y){
             this.energy = energy;
             this.x = x;
@@ -53,7 +53,7 @@ public class Board {
         }
 
     }
-    private Octopus[][] octopi;
+    private final Octopus[][] octopi;
 
     private int numberOfFlashes = 0;
     private int stepsSimulated = 0;
@@ -142,9 +142,9 @@ public class Board {
     private static boolean checkIfSynced(Octopus[][] grid){
         int target = grid[0][0].getEnergy();
 
-        for(int y = 0; y < grid.length; y++){
-            for(int x = 0; x < grid[y].length; x++){
-                if(target != grid[y][x].getEnergy()){
+        for(Octopus[] line : grid){
+            for(Octopus octopus : line){
+                if(target != octopus.getEnergy()){
                     return false;
                 }
             }

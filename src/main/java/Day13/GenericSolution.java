@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.*;
 
 public abstract class GenericSolution extends Day {
-    protected Set<Point> dots = new HashSet<>();
-    private List<Instruction> instructions = new ArrayList<>();
+    protected final Set<Point> dots = new HashSet<>();
+    private final List<Instruction> instructions = new ArrayList<>();
 
     private enum FoldAxis {
         X,
@@ -16,8 +16,8 @@ public abstract class GenericSolution extends Day {
     }
 
     private static class Instruction {
-        private int coordinate;
-        private FoldAxis foldAxis;
+        private final int coordinate;
+        private final FoldAxis foldAxis;
 
         public Instruction(int coordinate, FoldAxis foldAxis){
             this.coordinate = coordinate;

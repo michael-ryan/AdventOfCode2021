@@ -5,8 +5,8 @@ import Common.Day;
 import java.util.*;
 
 public abstract class GenericSolution extends Day {
-    private List<Cave> caves = new ArrayList<>();
-    private Map<Cave, Set<Cave>> connections;
+    private final List<Cave> caves = new ArrayList<>();
+    private final Map<Cave, Set<Cave>> connections;
 
     protected GenericSolution(){
         Cave[][] connectionsAsArray = this.parseAsStringStream()
@@ -81,8 +81,8 @@ public abstract class GenericSolution extends Day {
     }
 
     protected static class Cave {
-        private boolean isBig;
-        private String name;
+        private final boolean isBig;
+        private final String name;
 
         public Cave(String name){
             this.name = name;
@@ -104,10 +104,10 @@ public abstract class GenericSolution extends Day {
     }
 
     protected static class Route implements Iterable<Cave> {
-        private boolean isComplete;
+        private final boolean isComplete;
 
         // backwards, first element should always be the end cave
-        private List<Cave> route = new ArrayList<>();
+        private final List<Cave> route = new ArrayList<>();
 
         public Route(Cave cave){
             route.add(cave);
