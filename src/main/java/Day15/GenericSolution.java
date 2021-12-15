@@ -58,21 +58,16 @@ public abstract class GenericSolution extends Day {
         Queue<Tile> tiles = new PriorityQueue<>();
         Map<Tile, Tile> previousTile = new HashMap<>();
 
-        for(Tile[] row : graph){
-            for(Tile tile : row){
-                previousTile.put(tile, null);
-                tiles.add(tile);
-            }
-        }
+        graph[0][0].improveMinCost(0);
+        tiles.add(graph[0][0]);
 
-        improveCost(tiles, graph[0][0], 0);
-
-        while(tiles.size() > 0){
+        while(previousTile.keySet().size() < (graph.length * graph[0].length) - 1){
             Tile tile = tiles.remove();
             for(Tile neighbour : findNeighbours(tile, graph)){
                 int candidateDistance = tile.getMinCost() + neighbour.getRisk();
-                if(candidateDistance < neighbour.getMinCost()){
-                    improveCost(tiles, neighbour, candidateDistance);
+                if(candidateDistance > 0 && candidateDistance < neighbour.getMinCost()){
+                    neighbour.improveMinCost(candidateDistance);
+                    tiles.add(neighbour);
                     previousTile.put(neighbour, tile);
                 }
             }
@@ -109,11 +104,5 @@ public abstract class GenericSolution extends Day {
         } catch(IndexOutOfBoundsException ignored){}
 
         return neighbours;
-    }
-
-    private static void improveCost(Queue<Tile> tiles, Tile tile, int newCost){
-        tiles.remove(tile);
-        tile.improveMinCost(newCost);
-        tiles.add(tile);
     }
 }
