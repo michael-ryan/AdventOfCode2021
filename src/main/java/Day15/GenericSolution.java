@@ -61,7 +61,7 @@ public abstract class GenericSolution extends Day {
         graph[0][0].improveMinCost(0);
         tiles.add(graph[0][0]);
 
-        while(previousTile.keySet().size() < (graph.length * graph[0].length) - 1){
+        while(previousTile.size() < (graph.length * graph[0].length) - 1){
             Tile tile = tiles.remove();
             for(Tile neighbour : findNeighbours(tile, graph)){
                 int candidateDistance = tile.getMinCost() + neighbour.getRisk();
